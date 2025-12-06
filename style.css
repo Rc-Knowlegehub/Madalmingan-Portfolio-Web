@@ -1,0 +1,242 @@
+
+*/
+body {
+    /* Apply Inter font, falling back to system fonts */
+    font-family: 'Inter', sans-serif;
+    /* Sets a very light background color */
+    background-color: #f7f7f7;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Navigation & Sidebar Styling
+|--------------------------------------------------------------------------
+*/
+
+/* Custom styling for the active navigation link */
+.active-nav-link {
+    background-color: #4CAF50; /* Green highlight for active link */
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+    font-weight: 600;
+}
+
+.active-nav-link svg, .active-nav-link i {
+    color: white; /* Ensure Lucide icons are white */
+}
+
+/* Base link color when not active */
+.nav-link {
+    color: #ccc; /* Light gray text */
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Home Section - Profile Image
+|--------------------------------------------------------------------------
+*/
+
+/* Styles for the round image in the sidebar */
+.round-image-container {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #4CAF50;
+    box-shadow: 0 0 0 8px rgba(76, 175, 80, 0.2);
+}
+
+.round-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Styles for the larger image in the Home Section (Right side) */
+.large-profile-image-container {
+    /* Set the desired LARGE size */
+    width: 350px;
+    height: 420px;
+    
+    /* Responsive Fixes */
+    max-width: 100%; 
+    height: auto; 
+
+    border-radius: 1.5rem;
+    overflow: hidden;
+    border: 6px solid #4CAF50;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-sizing: border-box; 
+}
+
+.large-profile-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Typing Cursor Animation */
+#typing-cursor {
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| About Section - Table Styling
+|--------------------------------------------------------------------------
+*/
+
+.personal-details-table tr td:first-child {
+    font-weight: 600;
+    width: 30%; /* Align the labels */
+    padding-right: 1rem;
+}
+
+.personal-details-table tr td {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dotted #e0e0e0;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Resume/Skills Styling
+|--------------------------------------------------------------------------
+*/
+
+.skill-badge {
+    display: inline-block;
+    background-color: #E8F5E9; /* Very light green */
+    color: #2E7D32; /* Dark green text */
+    padding: 0.4rem 0.8rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.skill-badge:hover {
+    background-color: #C8E6C9;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Projects Styling
+|--------------------------------------------------------------------------
+*/
+
+.project-container {
+    display: grid;
+    /* Creates a responsive grid with minimum column size of 280px */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+.project-card {
+    background: #ffffff;
+    border: 2px solid #2E7D32;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover{
+    transform: translateY(-5px);
+    /* Corrected: Removed invalid syntax and added a valid box-shadow */
+    box-shadow: 0 20px 25px rgba(46, 125, 50, 0.15); 
+}
+
+
+.project-card img {
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+/*
+|--------------------------------------------------------------------------
+| Contact Section Styling
+|--------------------------------------------------------------------------
+*/
+
+.contact-info-card {
+    /* Base styles */
+    padding: 1.5rem; /* Matches p-6/p-10/p-16 in HTML context */
+    background-color: #f9f9f9; /* Light gray background */
+    border-radius: 1rem;
+    text-align: center;
+    border: 1px solid #eee;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.contact-info-card:hover {
+    background-color: #4CAF50; /* Green background on hover (Primary Brand Color) */
+    transform: translateY(-3px); /* Subtle lift effect */
+    cursor: default;
+}
+
+.contact-info-card:hover h4, .contact-info-card:hover p {
+    color: white; /* White text on hover */
+}
+
+/* Highlight color definition (used for social links and other highlights) */
+.social-link i {
+    color: #4CAF50; /* Use your primary color for social links */
+}
+
+.social-link:hover i {
+    color: #2E7D32; /* Darker green on hover */
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Print to PDF Styling (Hides navigation for cleaner resume PDF)
+|--------------------------------------------------------------------------
+*/
+@media print {
+    /* Hide the sidebar, menu button, and the gap at the bottom */
+    #sidebar, 
+    #menu-toggle, 
+    #sidebar-overlay,
+    .h-10.md\:h-0 {
+        display: none !important;
+    }
+
+    /* Adjust main content area to take full width and remove padding that pushes it away from the edge */
+    #main-content {
+        margin-left: 0 !important;
+        padding: 0 !important; 
+        width: 100% !important;
+    }
+
+    /* Ensure the content section itself is not constrained and prints well */
+    .content-section {
+        max-width: none !important;
+        padding: 20px !important; /* Add some print padding */
+        margin: 0 auto !important;
+        
+    }
+
+    /* Remove box shadows and background colors that waste ink */
+    .bg-white, .shadow-2xl {
+        box-shadow: none !important;
+        background-color: transparent !important;
+        border: none !important;
+    }
+
+}
